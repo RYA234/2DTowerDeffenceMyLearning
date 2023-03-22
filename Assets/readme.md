@@ -11,4 +11,4 @@ Unity:2021:3:9f
 
 # リンク
 
-https://www.udemy.com/course/learn-how-to-create-a-2d-tower-defense-game-in-unity-2020/learn/lecture/22979508?start=75#overview
+https://www.udemy.com/course/learn-how-to-crea3te-a-2d-tower-defense-game-in-unity-2020/learn/lecture/22979508?start=75#overview
