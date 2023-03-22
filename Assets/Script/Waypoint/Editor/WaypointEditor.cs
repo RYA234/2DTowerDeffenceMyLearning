@@ -23,6 +23,15 @@ public class WaypointEditor : Editor
             Vector3 newWaypointPoint = Handles.FreeMoveHandle(currentWaypointPoint,
                 Quaternion.identity, 0.7f,new Vector3(0.3f,0.3f, 0.3f), Handles.SphereHandleCap);
             
+            // テキストの作成
+            
+            GUIStyle textStyle = new GUIStyle();
+            textStyle.fontStyle = FontStyle.Bold;
+            textStyle.fontSize = 16;
+            textStyle.normal.textColor = Color.yellow;
+            
+            Handles.Label(Waypoint.Points[i], $"{i + 1}", textStyle);
+
             if (EditorGUI.EndChangeCheck())
             {
                 // インスペクター上のベクトルの座標
