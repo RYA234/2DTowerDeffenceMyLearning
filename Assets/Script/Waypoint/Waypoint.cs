@@ -1,4 +1,3 @@
-
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -11,6 +10,7 @@ public class Waypoint : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] private Vector3[] points;
     public Vector3[] Points => points;
+
     void Start()
     {
     }
@@ -18,6 +18,18 @@ public class Waypoint : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+    }
+
+    private void OnDrawGizmos()
+    {
+        for (int i = 0; i < points.Length; i++)
+        {
+            if (i < points.Length - 1)
+            {
+                Gizmos.color = Color.yellow;
+                // 隣接する２点間の距離を引く
+                Gizmos.DrawLine(points[i], points[i + 1]);
+            }
+        }
     }
 }
