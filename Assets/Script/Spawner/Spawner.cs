@@ -1,16 +1,22 @@
+using System;
 using UnityEngine;
 
 
     public class Spawner : MonoBehaviour
     {
-        [SerializeField] private GameObject testGO;
         [SerializeField]  private  int enemyCount = 10;
         // Btw = Between
         [SerializeField] private float delayBtwSpawns;
 
         private int _enemiesSpawned;
         private float _spawnTimer;
-        
+        private ObjectPooler _objectPooler;
+
+        private void Start()
+        {
+            _objectPooler = GetComponent<ObjectPooler>();
+        }
+
         private void Update()
         {
             _spawnTimer -= Time.deltaTime;
@@ -27,7 +33,8 @@ using UnityEngine;
         
         private void SpawnEnemy()
         {
-            Instantiate(testGO, transform.position, Quaternion.identity);
+            GameObject newInstance = _objectPooler.GetInstanceFromPool();
+            newInstance.SetActive(true);
         }
         
     }
