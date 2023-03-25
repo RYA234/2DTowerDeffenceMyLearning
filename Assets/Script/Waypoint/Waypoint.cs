@@ -14,12 +14,6 @@ public class Waypoint : MonoBehaviour
     void Start()
     {
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
     private void OnDrawGizmos()
     {
         for (int i = 0; i < points.Length; i++)
@@ -31,5 +25,10 @@ public class Waypoint : MonoBehaviour
                 Gizmos.DrawLine(points[i], points[i + 1]);
             }
         }
+    }
+
+    public Vector3 GetWaypointPosition(int index)
+    {
+        return points[index];
     }
 }
