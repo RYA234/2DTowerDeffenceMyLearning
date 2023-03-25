@@ -16,6 +16,10 @@ public class Enemy : MonoBehaviour
     private void Update()
     {
         Move();
+        if (CurrentPointPositionReached())
+        {
+            _currentWaypointIndex++;
+        }
     }
 
     private void Move()
@@ -23,4 +27,10 @@ public class Enemy : MonoBehaviour
         Vector3 currentPosition = waypoint.GetWaypointPosition(_currentWaypointIndex);
         transform.position = Vector3.MoveTowards(transform.position, currentPosition, moveSpeed * Time.deltaTime);
     }
+    
+    private bool CurrentPointPositionReached()
+    {
+        return Vector3.Distance(transform.position, CurrentPointPosition) < 0.1f;
+    }
+
 }
