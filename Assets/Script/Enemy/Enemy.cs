@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public static Action OnEndReached;
+    
     [SerializeField] private float moveSpeed = 3f;
     [SerializeField] private Waypoint waypoint;
     public Vector3 CurrentPointPosition => waypoint.GetWaypointPosition(_currentWaypointIndex);
@@ -46,8 +48,11 @@ public class Enemy : MonoBehaviour
             
         }
     }
+
+    
     private void ReturnEnemyToPool()
-    {
+    { 
+        OnEndReached?.Invoke();
         ObjectPooler.ReturnToPool(gameObject);
     }
 }
