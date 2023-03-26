@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour
         Move();
         if (CurrentPointPositionReached())
         {
-            _currentWaypointIndex++;
+            UpdateCurrentPointIndex();
         }
     }
 
@@ -33,4 +33,21 @@ public class Enemy : MonoBehaviour
         return Vector3.Distance(transform.position, CurrentPointPosition) < 0.1f;
     }
 
+    private void UpdateCurrentPointIndex()
+    {
+        int lastWaypointIndex = waypoint.Points.Length - 1;
+        if (_currentWaypointIndex < lastWaypointIndex)
+        {
+            _currentWaypointIndex++;
+        }
+        else
+        {
+            ReturnEnemyToPool();
+            
+        }
+    }
+    private void ReturnEnemyToPool()
+    {
+        ObjectPooler.ReturnToPool(gameObject);
+    }
 }

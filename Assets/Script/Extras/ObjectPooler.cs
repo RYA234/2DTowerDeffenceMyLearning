@@ -45,4 +45,9 @@ public class ObjectPooler : MonoBehaviour
         // poolの数がいっぱいの場合は空のGameObjectを返す。
         return CreateInstance();
     }
+
+    public static void ReturnToPool(GameObject instance)
+    {
+        instance.SetActive(false);
+    }
 }
