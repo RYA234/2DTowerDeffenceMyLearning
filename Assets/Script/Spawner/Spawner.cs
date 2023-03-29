@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 
@@ -7,14 +8,21 @@ using UnityEngine;
         [SerializeField]  private  int enemyCount = 10;
         // Btw = Between
         [SerializeField] private float delayBtwSpawns;
+        [SerializeField] private float delayBtwWaves = 1f;
 
+        private int _enemiesRemaining;
+        
         private int _enemiesSpawned;
         private float _spawnTimer;
         private ObjectPooler _objectPooler;
+        private Waypoint _waypoint;
 
         private void Start()
         {
             _objectPooler = GetComponent<ObjectPooler>();
+            _waypoint = GetComponent<Waypoint>();
+            
+            _enemiesRemaining = enemyCount;
         }
 
         private void Update()
@@ -31,10 +39,39 @@ using UnityEngine;
             }
         }
         
+        // ReSharper disable Unity.PerformanceAnalysis
         private void SpawnEnemy()
         {
             GameObject newInstance = _objectPooler.GetInstanceFromPool();
+            Enemy enemy = newInstance.GetComponent<Enemy>();
+            enemy.Waypoint = _waypoint;
             newInstance.SetActive(true);
         }
+
+        private IEnumerator NextWave()
+        {
+            yield return new WaitForSeconds(delayBtwWaves);
+            _enemiesRemaining = enemyCount;
+            _spawnTimer = 0f;
+            _enemiesSpawned = 0;
+
+        }
         
+        private void RecordEnemyEndReached()
+        {
+            _enemiesRemaining--;
+            if (_enemiesRemaining <= 0)
+            {
+                StartCoroutine(NextWave());
+            }
+        }
+        private void OnEnable()
+        {
+            Enemy.OnEndReached += RecordEnemyEndReached;
+        }
+
+        private void OnDisable()
+        {
+            Enemy.OnEndReached -= RecordEnemyEndReached;
+        }
     }
