@@ -159,7 +159,7 @@ MonoBehaviour:
   - {x: -5.7629128, y: 1.2748164, z: 0}
   - {x: -3.0521216, y: -2.9161499, z: -1.9316406}
   - {x: 3.1045182, y: 2.7161808, z: 0}
-  - {x: 5.052468, y: -2.6558638, z: 0}
+  - {x: 5.3359694, y: -2.584988, z: 0}
 --- !u!4 &229365079
 Transform:
   m_ObjectHideFlags: 0
@@ -187,8 +187,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e88226417c24429a1c2195a973da507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyCount: 10
-  delayBtwSpawns: 1
+  enemyCount: 7
+  delayBtwSpawns: 1.24
   delayBtwWaves: 1
 --- !u!114 &229365081
 MonoBehaviour:
@@ -202,7 +202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98cf4539755847e6a09bbe1f0b55ce42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 5283420327785318373, guid: e1febecd3c943de4b946842209ef4a34, type: 3}
+  prefab: {fileID: 5283420327785318373, guid: 5728709661e7adc4b992b512fd60a310, type: 3}
   poolSize: 19
 --- !u!114 &229365082
 MonoBehaviour:
@@ -213,7 +213,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 229365077}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a66d78cf9de483d98815fcab820d41b, type: 3}
+  m_Script: {fileID: 11500000, guid: 2c6b5e1ad77c6fd45ae4d091fbca4a86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 10

@@ -45,6 +45,8 @@ using UnityEngine;
             GameObject newInstance = _objectPooler.GetInstanceFromPool();
             Enemy enemy = newInstance.GetComponent<Enemy>();
             enemy.Waypoint = _waypoint;
+            enemy.transform.localPosition = transform.position;
+            enemy.ResetEnemy();
             newInstance.SetActive(true);
         }
 
