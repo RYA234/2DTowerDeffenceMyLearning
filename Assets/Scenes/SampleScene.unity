@@ -187,7 +187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e88226417c24429a1c2195a973da507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyCount: 7
+  enemyCount: 2
   delayBtwSpawns: 1.24
   delayBtwWaves: 1
 --- !u!114 &229365081

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 94847692456487053}
   - component: {fileID: 94847692456487054}
   - component: {fileID: 94847692456487055}
+  - component: {fileID: 8249025393971835102}
   m_Layer: 5
   m_Name: HealthCanvas
   m_TagString: Untagged
@@ -37,7 +38,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0.7}
+  m_AnchoredPosition: {x: 0, y: 0.7000122}
   m_SizeDelta: {x: 1.5, y: 0.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &94847692456487053
@@ -83,7 +84,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &94847692456487055
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101,6 +102,19 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &8249025393971835102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 94847692456487089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c36a30501df4b6c873d601860b6dec4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fillAmountImage: {fileID: 94847692979771282}
 --- !u!1 &94847692821850227
 GameObject:
   m_ObjectHideFlags: 0
@@ -135,10 +149,10 @@ RectTransform:
   m_Father: {fileID: 94847692456487088}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -0.000000018626451, y: 0.0000000037252903}
+  m_SizeDelta: {x: 1.53, y: 0.31}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &94847692821850224
 CanvasRenderer:
@@ -261,6 +275,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 94847692456487088}
     m_Modifications:
+    - target: {fileID: 7787208259571663799, guid: 55669fdb21b34e9459cc08816cb108a4, type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7787208259952950358, guid: 55669fdb21b34e9459cc08816cb108a4, type: 3}
       propertyPath: m_Name
       value: Container
@@ -279,27 +297,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7787208259952950359, guid: 55669fdb21b34e9459cc08816cb108a4, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7787208259952950359, guid: 55669fdb21b34e9459cc08816cb108a4, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7787208259952950359, guid: 55669fdb21b34e9459cc08816cb108a4, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7787208259952950359, guid: 55669fdb21b34e9459cc08816cb108a4, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7787208259952950359, guid: 55669fdb21b34e9459cc08816cb108a4, type: 3}
       propertyPath: m_SizeDelta.x
-      value: -0.000000018626451
+      value: 1.53
       objectReference: {fileID: 0}
     - target: {fileID: 7787208259952950359, guid: 55669fdb21b34e9459cc08816cb108a4, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0.0000000037252903
+      value: 0.31
       objectReference: {fileID: 0}
     - target: {fileID: 7787208259952950359, guid: 55669fdb21b34e9459cc08816cb108a4, type: 3}
       propertyPath: m_LocalPosition.x
