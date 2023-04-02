@@ -43,5 +43,19 @@ public class EnemyHealth : MonoBehaviour
     public void DealDamage(float damageReceived)
     {
         CurrentHealth -= damageReceived;
+        if (CurrentHealth <= 0)
+        {
+            CurrentHealth = 0;
+            Die();
+        }
     }
+
+    private void Die()
+    {
+        CurrentHealth = initialHealth;
+        _healthBar.fillAmount = 1f;
+        ObjectPooler.ReturnToPool(gameObject);
+    }
+    
+    
 }
