@@ -59,7 +59,7 @@ using UnityEngine;
 
         }
         
-        private void RecordEnemyEndReached()
+        private void RecordEnemy()
         {
             _enemiesRemaining--;
             if (_enemiesRemaining <= 0)
@@ -67,13 +67,17 @@ using UnityEngine;
                 StartCoroutine(NextWave());
             }
         }
+
         private void OnEnable()
         {
-            Enemy.OnEndReached += RecordEnemyEndReached;
+            Enemy.OnEndReached += RecordEnemy;
+            EnemyHealth.OnEnemyKilled += RecordEnemy;
         }
+
 
         private void OnDisable()
         {
-            Enemy.OnEndReached -= RecordEnemyEndReached;
+            Enemy.OnEndReached -= RecordEnemy;
+            EnemyHealth.OnEnemyKilled -= RecordEnemy;
         }
     }
