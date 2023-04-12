@@ -10,11 +10,15 @@ public class Enemy : MonoBehaviour
     public Vector3 CurrentPointPosition => Waypoint.GetWaypointPosition(_currentWaypointIndex);
     private int _currentWaypointIndex;
     private EnemyHealth _enemyHealth;
+    public EnemyHealth EnemyHealth { get; set; }
+    
     
     private void Start()
     {
         _currentWaypointIndex = 0;
         _enemyHealth = GetComponent<EnemyHealth>();
+        EnemyHealth = GetComponent<EnemyHealth>();
+
     }
 
     private void Update()

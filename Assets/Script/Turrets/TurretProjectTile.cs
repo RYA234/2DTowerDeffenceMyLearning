@@ -25,6 +25,13 @@ public class TurretProjectTile : MonoBehaviour
             LoadProjecttile();
         }
 
+        if (_turret.CurrentEnemyTarget != null && _currentProjectileLoaded != null &&
+            _turret.CurrentEnemyTarget.EnemyHealth.CurrentHealth > 0f)
+        {
+            _currentProjectileLoaded.transform.parent = null;
+            _currentProjectileLoaded.SetEnemy((_turret.CurrentEnemyTarget));
+        }
+
 
     }
 
@@ -33,6 +40,8 @@ public class TurretProjectTile : MonoBehaviour
         GameObject newInstance = _pooler.GetInstanceFromPool();
         newInstance.transform.position = projecttileSpawnPosition.position;
         newInstance.transform.SetParent(projecttileSpawnPosition);
+
+        _currentProjectileLoaded = newInstance.GetComponent<Projectile>();
         newInstance.SetActive(true);
         
 
