@@ -19,7 +19,8 @@ public class Turrets : MonoBehaviour
 
     private void Update()
     {
-        
+        GetCurrentEnemyTarget();
+        RotateTowardsTarget();
     }
 
     private void GetCurrentEnemyTarget()
@@ -29,7 +30,22 @@ public class Turrets : MonoBehaviour
             CurrentEnemyTarget = null;
             return;
         }
+
+        CurrentEnemyTarget = _enemies[0];
     }
+
+    private void RotateTowardsTarget()
+    {
+        if (CurrentEnemyTarget == null)
+        {
+            return;
+        }
+
+        Vector3 targetPos = CurrentEnemyTarget.transform.position - transform.position;
+        float angle = Vector3.SignedAngle(transform.up, targetPos, transform.forward);
+        transform.Rotate(0f,0f,angle);
+    }
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Enemy"))
@@ -40,6 +56,18 @@ public class Turrets : MonoBehaviour
 
         CurrentEnemyTarget = _enemies[0];
         
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if(other.CompareTag("Enemy"))
+        {
+            Enemy enemy = other.GetComponent<Enemy>();
+            if (_enemies.Contains(enemy))
+            {
+                _enemies.Remove(enemy);
+            }
+        }
     }
 
     private void OnDrawGizmos()
