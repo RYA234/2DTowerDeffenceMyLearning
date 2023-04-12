@@ -6,6 +6,10 @@ public class Projectile : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 10f;
     private Enemy _enemyTarget;
+    [SerializeField] private float damage = 2f;
+    [SerializeField] private float minDistanceToDealDamage = 0.1f;
+    
+    public 
     
     void Start()
     {
@@ -25,6 +29,13 @@ public class Projectile : MonoBehaviour
     private void MoveProjecttile()
     {
         transform.position = Vector2.MoveTowards(transform.position,_enemyTarget.transform.position,moveSpeed * Time.deltaTime);
+        float distanceToTarget = (_enemyTarget.transform.position - transform.position).magnitude;
+        if (distanceToTarget < minDistanceToDealDamage)
+        {
+            _enemyTarget.EnemyHealth.DealDamage(damage);
+            ObjectPooler.ReturnToPool(gameObject);
+            
+        }
     }
 
     private void RotateProjetile()
