@@ -9,7 +9,8 @@ public class Projectile : MonoBehaviour
     [SerializeField] private float damage = 2f;
     [SerializeField] private float minDistanceToDealDamage = 0.1f;
     
-    public 
+    public TurretProjectTile TurretOwner { get; set; }
+    private float _nextAttackTime;
     
     void Start()
     {
@@ -24,6 +25,7 @@ public class Projectile : MonoBehaviour
             MoveProjecttile();
             RotateProjetile();
         }
+        
     }
 
     private void MoveProjecttile()
@@ -33,6 +35,7 @@ public class Projectile : MonoBehaviour
         if (distanceToTarget < minDistanceToDealDamage)
         {
             _enemyTarget.EnemyHealth.DealDamage(damage);
+            TurretOwner.ResetTurretProjectile();
             ObjectPooler.ReturnToPool(gameObject);
             
         }
@@ -45,9 +48,16 @@ public class Projectile : MonoBehaviour
         transform.Rotate(0f,0f,angle);
     }
 
+    
     public void SetEnemy(Enemy enemy)
     {
         _enemyTarget = enemy;
         
     }
+    public void ResetProjectile()
+    {
+        _enemyTarget = null;
+        transform.localRotation = Quaternion.identity;
+    }    
+    
 }
