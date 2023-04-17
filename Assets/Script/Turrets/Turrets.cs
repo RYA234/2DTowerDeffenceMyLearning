@@ -54,7 +54,7 @@ public class Turrets : MonoBehaviour
             _enemies.Add(newEnemy);
         }
 
-        CurrentEnemyTarget = _enemies[0];
+        // CurrentEnemyTarget = _enemies[0];
         
     }
 

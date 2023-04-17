@@ -6,24 +6,24 @@ using UnityEngine;
 public class TurretProjectTile : MonoBehaviour
 {
 
-    [SerializeField] private Transform projecttileSpawnPosition;
-    private ObjectPooler _pooler;
-    private Turrets _turret;
-    private Projectile _currentProjectileLoaded;
-    [SerializeField] private float delayBtwAttacks = 0.3f;
+    [SerializeField] protected Transform projecttileSpawnPosition;
+    protected ObjectPooler _pooler;
+    protected Turrets _turret;
+    protected Projectile _currentProjectileLoaded;
+    [SerializeField] protected float delayBtwAttacks = 0.3f;
 
-    private float _nextAttackTime;
+    protected float _nextAttackTime;
     
     private void Start()
     {
         _pooler = GetComponent<ObjectPooler>();
         _turret = GetComponent<Turrets>();
-
+    
         LoadProjecttile();
         
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         // if (Input.GetKeyDown(KeyCode.G))
         // {
@@ -49,7 +49,7 @@ public class TurretProjectTile : MonoBehaviour
         
     }
 
-    private void LoadProjecttile()
+    protected virtual void LoadProjecttile()
     {
         GameObject newInstance = _pooler.GetInstanceFromPool();
         newInstance.transform.position = projecttileSpawnPosition.position;

@@ -8,7 +8,7 @@ public class DamageTextManager : Singleton<DamageTextManager>
     public ObjectPooler Pooler { get; set; }
     
     // Start is called before the first frame update
-    void Start()
+   private void Start()
     {
         Pooler = GetComponent<ObjectPooler>();
     }

@@ -6,9 +6,9 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     public static Action<Enemy, float> OnEnemyHit;
-    [SerializeField] private float moveSpeed = 10f;
-    private Enemy _enemyTarget;
-    [SerializeField] private float damage = 2f;
+    [SerializeField] protected float moveSpeed = 10f;
+    protected Enemy _enemyTarget;
+    [SerializeField] protected float damage = 2f;
     [SerializeField] private float minDistanceToDealDamage = 0.1f;
     
     public TurretProjectTile TurretOwner { get; set; }
@@ -20,7 +20,7 @@ public class Projectile : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
         if (_enemyTarget != null)
         {
@@ -30,7 +30,7 @@ public class Projectile : MonoBehaviour
         
     }
 
-    private void MoveProjecttile()
+    protected virtual void MoveProjecttile()
     {
         transform.position = Vector2.MoveTowards(transform.position,_enemyTarget.transform.position,moveSpeed * Time.deltaTime);
         float distanceToTarget = (_enemyTarget.transform.position - transform.position).magnitude;
