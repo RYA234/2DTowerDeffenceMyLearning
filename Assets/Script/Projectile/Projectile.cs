@@ -8,8 +8,10 @@ public class Projectile : MonoBehaviour
     public static Action<Enemy, float> OnEnemyHit;
     [SerializeField] protected float moveSpeed = 10f;
     protected Enemy _enemyTarget;
-    [SerializeField] protected float damage = 2f;
+    // [SerializeField] protected float damage = 2f;
     [SerializeField] private float minDistanceToDealDamage = 0.1f;
+    
+    public float Damage { get; set; }
     
     public TurretProjectTile TurretOwner { get; set; }
     private float _nextAttackTime;
@@ -36,8 +38,8 @@ public class Projectile : MonoBehaviour
         float distanceToTarget = (_enemyTarget.transform.position - transform.position).magnitude;
         if (distanceToTarget < minDistanceToDealDamage)
         {
-            OnEnemyHit?.Invoke(_enemyTarget, damage);
-            _enemyTarget.EnemyHealth.DealDamage(damage);
+            OnEnemyHit?.Invoke(_enemyTarget, Damage);
+            _enemyTarget.EnemyHealth.DealDamage(Damage);
             TurretOwner.ResetTurretProjectile();
             ObjectPooler.ReturnToPool(gameObject);
             
