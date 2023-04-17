@@ -59,7 +59,7 @@ using UnityEngine;
 
         }
         
-        private void RecordEnemy()
+        private void RecordEnemy(Enemy enemy)
         {
             _enemiesRemaining--;
             if (_enemiesRemaining <= 0)
