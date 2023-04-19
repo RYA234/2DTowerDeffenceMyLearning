@@ -33,14 +33,25 @@ public class TurretShopManager : MonoBehaviour
     private void NodeSelected(Node nodeSelected)
     {
         _currentNodeSelected = nodeSelected;
-        
     }
+    
 
-
+    private void PlaceTurret(TurretSetting turretSetting)
+    {
+        if (_currentNodeSelected != null)
+        {
+            GameObject turretInstance = Instantiate(turretSetting.TurretPrefab);
+            turretInstance.transform.localPosition = _currentNodeSelected.transform.position;
+            turretInstance.transform.parent = _currentNodeSelected.transform;
+            Turrets turretPlaced = turretInstance.GetComponent<Turrets>();
+            _currentNodeSelected.SetTurret(turretPlaced);
+        }
+    }
 
     private void OnEnable()
     {
         Node.OnNodeSelected += NodeSelected;
+        TurretCard.OnPlaceTurret += PlaceTurret;
     }
 
 
@@ -48,6 +59,7 @@ public class TurretShopManager : MonoBehaviour
     private void OnDisable()
     {
         Node.OnNodeSelected -= NodeSelected;
+        TurretCard.OnPlaceTurret -= PlaceTurret;
     }
 
 }

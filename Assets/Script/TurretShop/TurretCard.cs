@@ -20,5 +20,16 @@ public class TurretCard : MonoBehaviour
         turretCost.text = turretSetting.TurretShopCost.ToString();
         
     }
+
+    public void PlaceTurret()
+    {
+        if (CurrencySystem.Instance.TotalCoins >= TurretLoaded.TurretShopCost)
+        {
+            CurrencySystem.Instance.RemoveCoins(TurretLoaded.TurretShopCost);
+            OnPlaceTurret?.Invoke(TurretLoaded);
+            
+         
+        }
+    }
     
 }
