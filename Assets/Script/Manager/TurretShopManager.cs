@@ -9,6 +9,8 @@ public class TurretShopManager : MonoBehaviour
 
     [Header("Turret Setting")] [SerializeField]
     private TurretSetting[] turrets;
+    
+    private Node _currentNodeSelected;
 
     private void Start()
     {
@@ -27,6 +29,25 @@ public class TurretShopManager : MonoBehaviour
         TurretCard cardButton = newInstance.GetComponent<TurretCard>();
         cardButton.SetupTurretButton(turretSetting);
         
+    }
+    private void NodeSelected(Node nodeSelected)
+    {
+        _currentNodeSelected = nodeSelected;
+        
+    }
+
+
+
+    private void OnEnable()
+    {
+        Node.OnNodeSelected += NodeSelected;
+    }
+
+
+
+    private void OnDisable()
+    {
+        Node.OnNodeSelected -= NodeSelected;
     }
 
 }
