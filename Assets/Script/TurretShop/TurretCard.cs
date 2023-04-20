@@ -26,6 +26,7 @@ public class TurretCard : MonoBehaviour
         if (CurrencySystem.Instance.TotalCoins >= TurretLoaded.TurretShopCost)
         {
             CurrencySystem.Instance.RemoveCoins(TurretLoaded.TurretShopCost);
+            UIManager.Instance.CloseTurretShopPanel();
             OnPlaceTurret?.Invoke(TurretLoaded);
             
          

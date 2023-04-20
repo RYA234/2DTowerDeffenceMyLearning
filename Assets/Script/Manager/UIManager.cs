@@ -15,6 +15,7 @@ public class UIManager : Singleton<UIManager>
     
     private Node _currentNodeSelected;
 
+    // 追加箇所
     public void CloseTurretShopPanel()
     {
         turretShopPanel.SetActive(false);
