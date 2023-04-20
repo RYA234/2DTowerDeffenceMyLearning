@@ -18,16 +18,8 @@ public class TurretUpgrade : MonoBehaviour
         UpgradeCost = upgradeInitialCost;
     }
 
-    // Update is called once per frame
-   private void Update()
-   {
-       if(Input.GetKeyDown(KeyCode.D))
-       {
-           UpgradeTurret();
-       }
-   }
 
-   private void UpgradeTurret()
+   public void UpgradeTurret()
    {
        if (CurrencySystem.Instance.TotalCoins >= UpgradeCost)
        {

@@ -12,7 +12,7 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] private GameObject nodeUIPanel;
     [SerializeField] private TextMeshProUGUI upgradeText;
     [SerializeField] private TextMeshProUGUI sellText;
-    
+    public TurretUpgrade TurretUpgrade { get; set; }
     private Node _currentNodeSelected;
 
     // 追加箇所
@@ -20,10 +20,21 @@ public class UIManager : Singleton<UIManager>
     {
         turretShopPanel.SetActive(false);
     }
-    
-    private void ShowNodeUI()
+
+    public void UpgradeTurret()
     {
+        _currentNodeSelected.Turrets.TurretUpgrade.UpgradeTurret();
+        UpdateUpgradeText();
+    }
+    private void ShowNodeUI()
+    { 
         nodeUIPanel.SetActive(true);
+       // UpdateUpgradeText();
+    }
+
+    private void UpdateUpgradeText()
+    {
+        upgradeText.text = _currentNodeSelected.Turrets.TurretUpgrade.UpgradeCost.ToString();
     }
     private void NodeSelected(Node nodeSelected)
     {

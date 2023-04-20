@@ -43,6 +43,7 @@ public class TurretShopManager : MonoBehaviour
             GameObject turretInstance = Instantiate(turretSetting.TurretPrefab);
             turretInstance.transform.localPosition = _currentNodeSelected.transform.position;
             turretInstance.transform.parent = _currentNodeSelected.transform;
+            
             Turrets turretPlaced = turretInstance.GetComponent<Turrets>();
             _currentNodeSelected.SetTurret(turretPlaced);
         }

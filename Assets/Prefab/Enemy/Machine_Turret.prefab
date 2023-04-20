@@ -289,7 +289,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96a337bbf3130aa49b2ff33025473928, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upgradeInitialCost: 0
+  upgradeInitialCost: 4
   upgradeCostIncremental: 0
   damageIncremental: 2
   delayReduce: 0.04
