@@ -229,7 +229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9bd47d0481696940b070038be5ada66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 9.8
+  attackRange: 49.05
 --- !u!114 &5540910717410431882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -246,7 +246,7 @@ MonoBehaviour:
   delayBtwAttacks: 0.11
   damage: 2
   isDualMachine: 0
-  spreadRange: 1.78
+  spreadRange: 2
 --- !u!114 &5540910717410431872
 MonoBehaviour:
   m_ObjectHideFlags: 0
