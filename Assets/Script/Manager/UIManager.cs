@@ -13,9 +13,17 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] private TextMeshProUGUI upgradeText;
     [SerializeField] private TextMeshProUGUI sellText;
     [SerializeField] private TextMeshProUGUI turretLevelText;
+    [SerializeField] private TextMeshProUGUI totalCoinsText;
+    [SerializeField] private TextMeshProUGUI lifesText;
     public TurretUpgrade TurretUpgrade { get; set; }
     private Node _currentNodeSelected;
-    
+
+    private void Update()
+    {
+        totalCoinsText.text = CurrencySystem.Instance.TotalCoins.ToString();
+        lifesText.text = LevelManager.Instance.TotalLives.ToString();
+        
+    }
 
     // 追加箇所
     public void CloseTurretShopPanel()
