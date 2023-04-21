@@ -11,6 +11,8 @@ public class TurretUpgrade : MonoBehaviour
     [SerializeField] private float delayReduce;
     private TurretProjectTile _turretProjectTile;
     public int Level { get; set; }
+    [Header("Sell")] [SerializeField] private float sellPert;
+    public float SellPerc { get; set; }
     
     
     public int UpgradeCost { get; set;}
@@ -18,6 +20,8 @@ public class TurretUpgrade : MonoBehaviour
     {
         _turretProjectTile = GetComponent<TurretProjectTile>();
         UpgradeCost = upgradeInitialCost;
+        SellPerc = sellPert;
+        Level = 1;
     }
 
 
@@ -30,6 +34,12 @@ public class TurretUpgrade : MonoBehaviour
            UpdateUpgrade();
            Level++;
        }
+   }
+
+   public int GetSellValue()
+   {
+       int sellValue = Mathf.RoundToInt(UpgradeCost * SellPerc);
+       return sellValue;
    }
 
    private void UpdateUpgrade()
