@@ -12,8 +12,10 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] private GameObject nodeUIPanel;
     [SerializeField] private TextMeshProUGUI upgradeText;
     [SerializeField] private TextMeshProUGUI sellText;
+    [SerializeField] private TextMeshProUGUI turretLevelText;
     public TurretUpgrade TurretUpgrade { get; set; }
     private Node _currentNodeSelected;
+    
 
     // 追加箇所
     public void CloseTurretShopPanel()
@@ -25,16 +27,23 @@ public class UIManager : Singleton<UIManager>
     {
         _currentNodeSelected.Turrets.TurretUpgrade.UpgradeTurret();
         UpdateUpgradeText();
+        UpdateTurretLevel();
     }
     private void ShowNodeUI()
     { 
         nodeUIPanel.SetActive(true);
-       // UpdateUpgradeText();
+        UpdateUpgradeText();
+        UpdateTurretLevel();
     }
 
     private void UpdateUpgradeText()
     {
         upgradeText.text = _currentNodeSelected.Turrets.TurretUpgrade.UpgradeCost.ToString();
+    }
+
+    private void UpdateTurretLevel()
+    {
+        turretLevelText.text = $"Level {_currentNodeSelected.Turrets.TurretUpgrade.Level}";
     }
     private void NodeSelected(Node nodeSelected)
     {
