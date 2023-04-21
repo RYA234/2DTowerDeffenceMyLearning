@@ -39,6 +39,11 @@ public class Node : MonoBehaviour
             ShowTurretInfo();
         }
     }
+    
+    public void CloseAttackRangeSprite()
+    {
+        attackRangeSprite.SetActive(false);
+    }
 
     public void SellTurret()
     {
