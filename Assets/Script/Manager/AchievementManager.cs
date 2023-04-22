@@ -19,7 +19,7 @@ public class AchievementManager : MonoBehaviour
         for (int i = 0; i < achievements.Length; i++)
         {
             AchievementCard card = Instantiate(_achievementCardPrefab, achievementPanelContainer);
-            
+            card.SetupAchievement(achievements[i]);
         }
     }
     
