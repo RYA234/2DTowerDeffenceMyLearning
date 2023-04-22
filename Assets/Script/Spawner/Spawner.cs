@@ -5,6 +5,8 @@ using UnityEngine;
 
     public class Spawner : MonoBehaviour
     {
+        public static Action OnWaveCompleted;
+        
         [SerializeField]  private  int enemyCount = 10;
         // Btw = Between
         [SerializeField] private float delayBtwSpawns;
@@ -64,6 +66,7 @@ using UnityEngine;
             _enemiesRemaining--;
             if (_enemiesRemaining <= 0)
             {
+                OnWaveCompleted?.Invoke();
                 StartCoroutine(NextWave());
             }
         }
