@@ -63,6 +63,7 @@ public class EnemyHealth : MonoBehaviour
     }
     private void Die()
     {
+        AchievementManager.Instance.AddProgress("Kill20",1);
         OnEnemyKilled?.Invoke(_enemy);
         CurrentHealth = initialHealth;
         _healthBar.fillAmount = 1f;

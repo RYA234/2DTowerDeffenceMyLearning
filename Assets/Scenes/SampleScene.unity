@@ -3849,6 +3849,7 @@ MonoBehaviour:
   achievements:
   - {fileID: 11400000, guid: cfff232ae637c8a48a11f297d16abe31, type: 2}
   - {fileID: 11400000, guid: 0618badb8bd5a4347a4d9ebd74c8208a, type: 2}
+  - {fileID: 11400000, guid: 20ccb27bd0981d1489e33bea1a402f54, type: 2}
 --- !u!4 &914700052
 Transform:
   m_ObjectHideFlags: 0
@@ -4010,7 +4011,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1066.34, y: 780.5}
+  m_AnchoredPosition: {x: -1066.34, y: 682.5}
   m_SizeDelta: {x: 200, y: 132.693}
   m_Pivot: {x: -0.8539031, y: 1.8397967}
 --- !u!222 &991038316
@@ -5771,7 +5772,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1696634504
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6001,7 +6002,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: -329.99997}
-  m_SizeDelta: {x: 880, y: 0}
+  m_SizeDelta: {x: 880, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1838900521
 MonoBehaviour:
