@@ -20,7 +20,7 @@ public class Achievement : ScriptableObject
         AchievementManager.OnProgressUpdated?.Invoke(this);
         CheckUnlockStatus();
     }
-
+    
     private void CheckUnlockStatus()
     {
         if (CurrentProgress >= ProgressToUnlock)
@@ -31,6 +31,7 @@ public class Achievement : ScriptableObject
 
     private void UnlockAchievement()
     {
+        IsUnlocked = true;
         AchievementManager.OnAchievementUnlocked?.Invoke(this);
     }
 
@@ -38,9 +39,16 @@ public class Achievement : ScriptableObject
     {
         return $"{CurrentProgress}/{ProgressToUnlock}";
     }
+    
+    public string GetProgressCompleted()
+    {
+        return $"{ProgressToUnlock}/{ProgressToUnlock}";
+        
+    }
 
     private void OnEnable()
     {
+        IsUnlocked = false;
         CurrentProgress = 0;
     }
 }
