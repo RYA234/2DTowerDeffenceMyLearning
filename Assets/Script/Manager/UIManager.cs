@@ -29,6 +29,21 @@ public class UIManager : Singleton<UIManager>
 
     }
 
+    public void SlowTime()
+    {
+        Time.timeScale = 0.5f;
+    }
+
+    public void ResumeTime()
+    {
+        Time.timeScale = 1f;
+    }
+
+    public void FastTime()
+    {
+        Time.timeScale = 2f;
+    }
+
     public void OpenAchievementPanel(bool status)
     {
         achievementPanel.SetActive(status);
