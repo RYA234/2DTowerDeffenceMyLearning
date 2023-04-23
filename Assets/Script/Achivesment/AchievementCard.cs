@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -11,23 +12,33 @@ public class AchievementCard : MonoBehaviour
    [SerializeField] private TextMeshProUGUI progress;
    [SerializeField] private TextMeshProUGUI reward;
 
+   public Achievement AchievementLoaded { get; set; }
+   
    public void SetupAchievement(Achievement achievement)
    {
+       AchievementLoaded = achievement;
        achievementImage.sprite = achievement.Sprite;
        title.text = achievement.Title;
-       progress.text = achievement.ProgressToUnlock.ToString();
+       progress.text = achievement.GetProgress();
        reward.text = achievement.GoldReward.ToString();
        
    }
 
-   void Start()
-    {
-        
-    }
+   private void UpdateProgress(Achievement achievementWithProgress)
+   {
+       if (AchievementLoaded == achievementWithProgress)
+       {
+           progress.text = achievementWithProgress.GetProgress();
+       }
+   }
 
-    // Update is called once per frame
-    void Update()
+   private void OnEnable()
+   {
+       AchievementManager.OnProgressUpdated += UpdateProgress;
+   }
+   
+    private void OnDisable()
     {
-        
+        AchievementManager.OnProgressUpdated -= UpdateProgress;
     }
 }

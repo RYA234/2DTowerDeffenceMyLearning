@@ -10,6 +10,7 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] private GameObject turretShopPanel;
 
     [SerializeField] private GameObject nodeUIPanel;
+    [SerializeField] private GameObject achievementPanel;
     [SerializeField] private TextMeshProUGUI upgradeText;
     [SerializeField] private TextMeshProUGUI sellText;
     [SerializeField] private TextMeshProUGUI turretLevelText;
@@ -26,6 +27,11 @@ public class UIManager : Singleton<UIManager>
         lifesText.text = LevelManager.Instance.TotalLives.ToString();
         currentWaveText.text = $"Wave {LevelManager.Instance.CurrentWave.ToString()}";
 
+    }
+
+    public void OpenAchievementPanel(bool status)
+    {
+        achievementPanel.SetActive(status);
     }
 
     // 追加箇所

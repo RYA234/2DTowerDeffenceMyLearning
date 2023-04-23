@@ -6,6 +6,7 @@ using UnityEngine;
 public class AchievementManager : Singleton<AchievementManager>
 {
     public static Action<Achievement> OnAchievementUnlocked;
+    public static Action<Achievement> OnProgressUpdated;
     
     [SerializeField] private AchievementCard _achievementCardPrefab;
     [SerializeField] private Transform achievementPanelContainer;
