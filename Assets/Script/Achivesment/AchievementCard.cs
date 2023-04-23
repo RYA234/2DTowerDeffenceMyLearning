@@ -26,6 +26,7 @@ public class AchievementCard : MonoBehaviour
        
    }
 
+   // 追加
    public void GetReward()
    {
        if (AchievementLoaded.IsUnlocked)
