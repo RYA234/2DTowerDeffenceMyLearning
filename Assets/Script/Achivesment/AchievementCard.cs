@@ -11,6 +11,8 @@ public class AchievementCard : MonoBehaviour
    [SerializeField] private TextMeshProUGUI title;
    [SerializeField] private TextMeshProUGUI progress;
    [SerializeField] private TextMeshProUGUI reward;
+   [SerializeField] private Button rewardButton;
+   
 
    public Achievement AchievementLoaded { get; set; }
    
@@ -24,6 +26,15 @@ public class AchievementCard : MonoBehaviour
        
    }
 
+   public void GetReward()
+   {
+       if (AchievementLoaded.IsUnlocked)
+       {
+           CurrencySystem.Instance.AddCoins(AchievementLoaded.GoldReward);
+           rewardButton.gameObject.SetActive(false);
+       }
+   }
+
    private void UpdateProgress(Achievement achievementWithProgress)
    {
        if (AchievementLoaded == achievementWithProgress)
@@ -32,13 +43,24 @@ public class AchievementCard : MonoBehaviour
        }
    }
 
+   private void AchievementUnlocked(Achievement achievement)
+   {
+       if (AchievementLoaded == achievement)
+       {
+           rewardButton.interactable = true;
+       }
+   }
+
    private void OnEnable()
    {
        AchievementManager.OnProgressUpdated += UpdateProgress;
+       AchievementManager.OnAchievementUnlocked += AchievementUnlocked;
+       
    }
    
     private void OnDisable()
     {
         AchievementManager.OnProgressUpdated -= UpdateProgress;
+        AchievementManager.OnAchievementUnlocked -= AchievementUnlocked;
     }
 }

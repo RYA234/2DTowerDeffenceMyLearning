@@ -11,7 +11,7 @@ public class Achievement : ScriptableObject
     public int ProgressToUnlock;
     public int GoldReward;
     public Sprite Sprite;
-
+    public bool IsUnlocked { get; set; }
     public int CurrentProgress = 0 ;
 
     public void AddProgress(int amount)
